@@ -25,13 +25,6 @@ class TextInputViewController: BaseViewController, UIPickerViewDelegate, UIPicke
     var pickerData: [PickerEntry]?
     var pickerVisible: Bool = false
     
-    // keyboard managing
-    var currentField:UIView?
-    var keyboardShown:Bool = false
-    var startingScrollFrame:CGRect?
-    var scrollFrameHeightDifference:CGFloat = 0.0
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -283,7 +276,7 @@ class TextInputViewController: BaseViewController, UIPickerViewDelegate, UIPicke
         let filtered = data.filter { $0.value == key }
         if filtered.count > 0 {
             if let filteredValue = filtered.first {
-                return data.index(of: filteredValue)
+                return data.firstIndex(of: filteredValue)
             }
         }
         return nil
@@ -297,72 +290,27 @@ class TextInputViewController: BaseViewController, UIPickerViewDelegate, UIPicke
         return nil
     }
     
-    // MARK: - Keyboard
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        currentField = textView
-        return true
-    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        currentField = textField
-        
-        return true
-    }
-    
     @objc func onKeyboardShowNotification(_ notification:Notification) {
         // sanity checks
         assert((scroll != nil), "Scrollview not set")
-        assert((currentField != nil), "Textfield/textview is nil. Are the outlets and delegate set?")
         
-        if (!keyboardShown) {
-            startingScrollFrame = scroll!.frame;
-            startingScrollFrame!.size.height += scrollFrameHeightDifference;
-        }
-        
-        
-        let info = (notification as NSNotification).userInfo!
-        let keyboardFrameRect: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        
-        var frame = startingScrollFrame
-        frame!.size.height -= keyboardFrameRect.size.height
-        Constants.debugPrint("show frame \(frame!.size.height)")
-        scroll!.frame = frame!
-        
-        var offset:CGFloat = 0
-        var parent:UIView? = currentField!
-        while (parent != nil && parent != scroll) {
-            let parentFrame = parent!.frame
-            offset += parentFrame.origin.y
+        if let scrollView = scroll, let userInfo = notification.userInfo {
+            var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            keyboardFrame = self.view.convert(keyboardFrame, from: nil)
             
-            parent = parent!.superview
+            var contentInset: UIEdgeInsets = scrollView.contentInset
+            contentInset.bottom = keyboardFrame.size.height
+            scrollView.contentInset = contentInset
+            scrollView.scrollIndicatorInsets = contentInset
         }
-        
-        let visibleFrame = CGRect(x: 0, y: offset, width: currentField!.frame.size.width, height: currentField!.frame.size.height)
-        scroll!.scrollRectToVisible(visibleFrame, animated:true)
-        
-        keyboardShown = true
-        
-        keyboardShown(keyboardFrameRect)
     }
     
-    @objc func onKeyboardHideNotification(_ notification:Notification) {
-        // can't do much when the starting frame is not set
-        if startingScrollFrame != nil {
-            if (startingScrollFrame!.isEmpty) {
-                startingScrollFrame = self.view.bounds;
-            }
-            
-            startingScrollFrame!.size.height -= scrollFrameHeightDifference
-            scroll!.frame = startingScrollFrame!
-            
-            Constants.debugPrint("hide frame \(startingScrollFrame!.size.height)")
-            
-            //    NSLog(@"scroll %.0f %.0f; %.0f %.0f", scroll.frame.origin.x, scroll.frame.origin.y, scroll.frame.size.width, scroll.frame.size.height);
-            //    NSLog(@"bounds %.0f %.0f; %.0f %.0f", self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height);
+    @objc func onKeyboardHideNotification(_ notification: NSNotification) {
+        if let scrollView = scroll {
+            scrollView.contentInset = UIEdgeInsets.zero
+            scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+            keyboardHidden()
         }
-        
-        keyboardShown = false
-        keyboardHidden()
     }
     
     func keyboardShown(_ keyboardFrame:CGRect) {
