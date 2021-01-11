@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ForgotAccountViewController" customModule="Base_iOS_Project" customModuleProvider="target">
+            <connections>
+                <outlet property="emailField" destination="6xh-Cp-10H" id="ABq-jt-ktj"/>
+                <outlet property="scroll" destination="Lul-Nq-Yfx" id="KSQ-Wm-qGN"/>
+                <outlet property="submitButton" destination="x99-oN-Afr" id="JcT-8z-87u"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="inputList" destination="6xh-Cp-10H" collectionClass="NSMutableArray" id="0lP-Xa-jRR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lul-Nq-Yfx">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This is some text that explains what is going to happen once a user enters their email address." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6YD-5P-qTX">
+                            <rect key="frame" x="8" y="8" width="359" height="61"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MA-nM-ZCu">
+                            <rect key="frame" x="8" y="77" width="359" height="21"/>
+                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                            <color key="textColor" red="0.094117647060000004" green="0.69803921570000005" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6xh-Cp-10H">
+                            <rect key="frame" x="8" y="106" width="359" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="F50-ou-VAu"/>
+                            </constraints>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="go"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="hbu-xA-bH8"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x99-oN-Afr">
+                            <rect key="frame" x="8" y="144" width="359" height="44"/>
+                            <color key="backgroundColor" red="0.094117647060000004" green="0.69803921570000005" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="58f-r9-FOC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                            <state key="normal" title="Submit">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onSubmitButton" destination="-1" eventType="touchUpInside" id="xlv-P8-NPR"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="x99-oN-Afr" firstAttribute="top" secondItem="6xh-Cp-10H" secondAttribute="bottom" constant="8" id="1LY-tf-PAs"/>
+                        <constraint firstItem="5MA-nM-ZCu" firstAttribute="top" secondItem="6YD-5P-qTX" secondAttribute="bottom" constant="8" id="Czb-Ka-CJc"/>
+                        <constraint firstItem="6xh-Cp-10H" firstAttribute="top" secondItem="5MA-nM-ZCu" secondAttribute="bottom" constant="8" id="H0d-my-l7q"/>
+                        <constraint firstItem="6YD-5P-qTX" firstAttribute="top" secondItem="Lul-Nq-Yfx" secondAttribute="top" constant="40" id="bQ3-lG-mmB"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5MA-nM-ZCu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="1MP-7D-5xG"/>
+                <constraint firstItem="Lul-Nq-Yfx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="6DO-dK-ha6"/>
+                <constraint firstItem="6YD-5P-qTX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="6je-gF-7w2"/>
+                <constraint firstAttribute="trailing" secondItem="x99-oN-Afr" secondAttribute="trailing" constant="8" id="9jK-OM-egw"/>
+                <constraint firstItem="6xh-Cp-10H" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Mpx-nu-d95"/>
+                <constraint firstAttribute="trailing" secondItem="Lul-Nq-Yfx" secondAttribute="trailing" id="TnR-BP-Lyj"/>
+                <constraint firstItem="x99-oN-Afr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="VNE-1b-HEX"/>
+                <constraint firstAttribute="trailing" secondItem="6YD-5P-qTX" secondAttribute="trailing" constant="8" id="XN0-4h-OFt"/>
+                <constraint firstAttribute="trailing" secondItem="5MA-nM-ZCu" secondAttribute="trailing" constant="8" id="bo6-55-Pwz"/>
+                <constraint firstAttribute="trailing" secondItem="6xh-Cp-10H" secondAttribute="trailing" constant="8" id="lzT-6A-FXC"/>
+                <constraint firstAttribute="bottom" secondItem="Lul-Nq-Yfx" secondAttribute="bottom" id="sDt-GA-u9D"/>
+                <constraint firstItem="Lul-Nq-Yfx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="v1a-Mp-lEz"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+            <point key="canvasLocation" x="26.5" y="-459.5"/>
+        </view>
+    </objects>
+</document>

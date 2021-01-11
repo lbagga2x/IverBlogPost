@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>+post_title+</title>
+		<meta id="Viewport" name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+		<style type="text/css">
+			@font-face {
+			    font-family: Lato;
+			    src: url('+normal_font+');
+			}
+
+			@font-face {
+			    font-family: LatoBold;
+			    src: url('+bold_font+');
+			}
+
+			@font-face {
+			    font-family: LatoItalic;
+			    src: url('+italic_font+');
+			}
+
+			body { font-family: Lato, sans-serif; }
+			em { font-family: LatoItalic; }
+			strong { font-family: LatoBold; }
+			.date { font-size: 80%; margin: 0;}
+            img.header { width: 100%; }
+            h1 { color: +header_colour+; }
+            h4.author { text-transform: uppercase; margin-bottom: 0.25em; }
+            .post_content { margin-top: 1em; }
+		</style>
+	</head>
+
+	<body>
+		<div id="container">
+			+header_image+
+			<h1>+post_title+</h1>
+            <h4 class="author">+post_author+</h4>
+			<p class="date">+post_date+</p>
+
+			<div class="post_content">
+			+post_content+
+			</div>
+		</div>
+	</body>
+</html>

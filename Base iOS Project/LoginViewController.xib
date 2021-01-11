@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="Base_iOS_Project" customModuleProvider="target">
+            <connections>
+                <outlet property="emailField" destination="fNf-fs-J3W" id="1ug-tN-D1u"/>
+                <outlet property="forgotButton" destination="RL4-Ua-3bF" id="KOK-Nd-9eJ"/>
+                <outlet property="loginButton" destination="b38-WP-CQt" id="hOL-ct-XaT"/>
+                <outlet property="passwordField" destination="Nfh-lO-mVu" id="S1C-60-lUM"/>
+                <outlet property="registerButton" destination="6ne-6h-Htl" id="XeU-cI-2eo"/>
+                <outlet property="scroll" destination="Jd2-f9-9XU" id="8ZR-qL-JXW"/>
+                <outlet property="stackView" destination="4sf-iJ-l7Z" id="UmY-T6-toH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="inputList" destination="fNf-fs-J3W" collectionClass="NSMutableArray" id="Ept-oh-3gb"/>
+                <outletCollection property="inputList" destination="Nfh-lO-mVu" collectionClass="NSMutableArray" id="lRc-K5-Sj2"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jd2-f9-9XU">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4sf-iJ-l7Z">
+                            <rect key="frame" x="0.0" y="20" width="375" height="186"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vw4-a8-pjD">
+                                    <rect key="frame" x="8" y="8" width="359" height="20.5"/>
+                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                    <color key="textColor" red="0.094117647058823528" green="0.69803921568627447" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNf-fs-J3W">
+                                    <rect key="frame" x="8" y="38.5" width="359" height="28"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="28" id="ReE-eL-dP7"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="Z8t-6E-ji2"/>
+                                    </connections>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbK-wa-BuS">
+                                    <rect key="frame" x="8" y="76.5" width="359" height="20.5"/>
+                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                    <color key="textColor" red="0.094117647060000004" green="0.69803921570000005" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nfh-lO-mVu">
+                                    <rect key="frame" x="8" y="107" width="359" height="28"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="28" id="a6k-0s-FzG"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="YdI-jL-kDE"/>
+                                    </connections>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b38-WP-CQt">
+                                    <rect key="frame" x="8" y="145" width="359" height="33"/>
+                                    <color key="backgroundColor" red="0.094117647060000004" green="0.69803921570000005" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                    <state key="normal" title="Log in">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onLoginButton" destination="-1" eventType="touchUpInside" id="SJ3-5A-MSH"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ne-6h-Htl">
+                            <rect key="frame" x="8" y="214" width="67" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="dAg-f7-5ud"/>
+                            </constraints>
+                            <state key="normal" title="Register">
+                                <color key="titleColor" red="0.094117647060000004" green="0.69803921570000005" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onRegisterButton" destination="-1" eventType="touchUpInside" id="M6p-fx-KQe"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RL4-Ua-3bF">
+                            <rect key="frame" x="8" y="252" width="157" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="KZO-8Q-gka"/>
+                            </constraints>
+                            <state key="normal" title="Forgot your password?">
+                                <color key="titleColor" red="0.094117647060000004" green="0.69803921570000005" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onForgotButton" destination="-1" eventType="touchUpInside" id="u8h-kv-2PP"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="4sf-iJ-l7Z" secondAttribute="trailing" id="3Es-YS-WCM"/>
+                        <constraint firstItem="RL4-Ua-3bF" firstAttribute="top" secondItem="6ne-6h-Htl" secondAttribute="bottom" constant="8" id="9FO-Pd-PtW"/>
+                        <constraint firstItem="6ne-6h-Htl" firstAttribute="leading" secondItem="Jd2-f9-9XU" secondAttribute="leading" constant="8" id="G3Z-Aa-X5W"/>
+                        <constraint firstItem="4sf-iJ-l7Z" firstAttribute="leading" secondItem="Jd2-f9-9XU" secondAttribute="leading" id="Mrt-5X-5Lu"/>
+                        <constraint firstItem="RL4-Ua-3bF" firstAttribute="leading" secondItem="Jd2-f9-9XU" secondAttribute="leading" constant="8" id="cpA-Aa-XZj"/>
+                        <constraint firstItem="4sf-iJ-l7Z" firstAttribute="width" secondItem="Jd2-f9-9XU" secondAttribute="width" id="nef-gd-1A0"/>
+                        <constraint firstItem="4sf-iJ-l7Z" firstAttribute="top" secondItem="Jd2-f9-9XU" secondAttribute="top" constant="20" id="txn-kg-oEh"/>
+                        <constraint firstItem="6ne-6h-Htl" firstAttribute="top" secondItem="4sf-iJ-l7Z" secondAttribute="bottom" constant="8" id="vwF-aH-gAF"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Jd2-f9-9XU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="JHQ-Zt-a92"/>
+                <constraint firstItem="Jd2-f9-9XU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eua-sF-80I"/>
+                <constraint firstAttribute="bottom" secondItem="Jd2-f9-9XU" secondAttribute="bottom" id="hcV-Qs-mMq"/>
+                <constraint firstAttribute="trailing" secondItem="Jd2-f9-9XU" secondAttribute="trailing" id="taW-3X-eyE"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <point key="canvasLocation" x="24.5" y="-331.5"/>
+        </view>
+    </objects>
+</document>

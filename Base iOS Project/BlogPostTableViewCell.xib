@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="KGk-i7-Jjw" customClass="BlogPostTableViewCell" customModule="Base_iOS_Project" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="287" height="71.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gMD-8B-gDg">
+                        <rect key="frame" x="8" y="8" width="56" height="56"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="r95-MX-n9h"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blog title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eFD-gX-HCS">
+                        <rect key="frame" x="72" y="8" width="207" height="20"/>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                        <color key="textColor" red="0.094117647060000004" green="0.69803921570000005" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bGX-TD-R6H">
+                        <rect key="frame" x="72" y="36" width="32.5" height="18"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="topMargin" secondItem="gMD-8B-gDg" secondAttribute="top" id="1L2-Jv-0ma"/>
+                    <constraint firstItem="bGX-TD-R6H" firstAttribute="top" secondItem="eFD-gX-HCS" secondAttribute="bottom" constant="8" id="7p3-Lu-Amv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eFD-gX-HCS" secondAttribute="trailing" id="9fR-nE-J2y"/>
+                    <constraint firstItem="eFD-gX-HCS" firstAttribute="leading" secondItem="gMD-8B-gDg" secondAttribute="trailing" constant="8" id="QdT-VF-jrJ"/>
+                    <constraint firstItem="bGX-TD-R6H" firstAttribute="leading" secondItem="gMD-8B-gDg" secondAttribute="trailing" constant="8" id="T73-uF-N3Z"/>
+                    <constraint firstAttribute="topMargin" secondItem="eFD-gX-HCS" secondAttribute="top" id="Zd2-sH-36U"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="gMD-8B-gDg" secondAttribute="leading" id="bgu-a9-0GW"/>
+                    <constraint firstItem="gMD-8B-gDg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qNZ-Gl-oBS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="bGX-TD-R6H" id="uKl-pX-DeU"/>
+                <outlet property="iconView" destination="gMD-8B-gDg" id="D1G-z2-6aI"/>
+                <outlet property="iconViewWidth" destination="r95-MX-n9h" id="ZKg-N7-63A"/>
+                <outlet property="titleLabel" destination="eFD-gX-HCS" id="xRv-WK-Ely"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
