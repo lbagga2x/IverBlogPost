@@ -14,6 +14,7 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
     var response: BlogPostResponse?
     var listParameters: [String : Any]?
     @IBOutlet var table: UITableView?
+    @IBOutlet var addBlogPostButton: UIButton!
     var refreshControl:UIRefreshControl?
     
     override func viewDidLoad() {
@@ -47,6 +48,12 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         refreshUserButton()
         refreshMessageButton()
         reloadData(0)
+    }
+    
+    @IBAction func onAddBlogButtonPressed() {
+        if let addBlogVC = storyboard?.instantiateViewController(withIdentifier: AddBlogPostViewController.Identifier) as? AddBlogPostViewController {
+            navigationController?.pushViewController(addBlogVC, animated: true)
+        }
     }
     
     func refreshMessageButton() {
