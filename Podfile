@@ -8,7 +8,6 @@ target 'Base iOS Project' do
   # Pods for Base iOS Project
   pod 'Alamofire', '4.8.1'
   pod 'AlamofireObjectMapper', '5.2.1'
-  pod 'SwiftyJSON', '5.0.0'
   pod 'SwiftSpinner', '2.1.0'
   pod 'UIScrollView-InfiniteScroll'
   pod 'Kingfisher', '~> 4.0'
@@ -19,6 +18,7 @@ target 'Base iOS Project' do
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'SwiftyJSON', '~> 5.0.0'
+  pod 'DKImagePickerController', :subspecs => ['PhotoGallery']
 
   target 'Base iOS ProjectTests' do
     inherit! :search_paths
