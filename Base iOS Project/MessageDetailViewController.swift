@@ -157,9 +157,9 @@ class MessageDetailViewController: TextInputViewController, UITableViewDelegate,
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // picked a photo, now add to the photo
-        let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage
+        let image = info[UIImagePickerController.InfoKey(rawValue: UIImagePickerController.InfoKey.originalImage.rawValue)] as! UIImage
         picker.dismiss(animated: true, completion: nil)
         
         // upload the image

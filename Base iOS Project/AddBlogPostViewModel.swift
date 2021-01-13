@@ -9,9 +9,12 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import DKImagePickerController
 
 class AddBlogPostViewModel: BaseViewModel {
     let blogCreationWatcher = PublishSubject<BlogPost>()
+    let imageWatcher = PublishSubject<UIImage?>()
+    private var selectedImage: UIImage?
     
     func onPostButtonPressed(blogTitle: String?, blogContent: String?, shouldPublish: Bool) {
         // build the required data based on the input fields
@@ -21,7 +24,7 @@ class AddBlogPostViewModel: BaseViewModel {
         params["published"] = shouldPublish
         
         isLoading.onNext(true)
-        HttpClient().createBlogPost(SettingModel.APIRouter.createBlogPosts(parameters: params), type: BlogPost.self, ApiCallback(onFinish: { [weak self](response) in
+        HttpClient().createBlogPost(SettingModel.APIRouter.createBlogPosts(parameters: params), image: selectedImage, params: params, type: BlogPost.self, ApiCallback(onFinish: { [weak self](response) in
             self?.isLoading.onNext(false)
             guard let self = self else { return }
             if let error = response?.error {
@@ -31,6 +34,11 @@ class AddBlogPostViewModel: BaseViewModel {
             }
         }))
     }
+    
+    func onImageSelected(assets: [DKAsset]) {
+        assets.first?.fetchOriginalImage(completeBlock: {[weak self] (image, _) in
+            self?.selectedImage = image
+            self?.imageWatcher.onNext(image)
+        })
+    }
 }
-
-

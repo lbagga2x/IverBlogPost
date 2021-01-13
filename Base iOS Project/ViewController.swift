@@ -48,6 +48,7 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         refreshUserButton()
         refreshMessageButton()
         reloadData(0)
+        addBlogPostButton.isHidden = !settingModel.isLoggedIn()
     }
     
     @IBAction func onAddBlogButtonPressed() {
