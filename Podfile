@@ -16,6 +16,9 @@ target 'Base iOS Project' do
   pod 'FacebookLogin', '0.5.0'
   pod 'Google/SignIn'
   pod 'Whisper', '6.0.2'
+  pod 'RxSwift', '~> 5'
+  pod 'RxCocoa', '~> 5'
+  pod 'SwiftyJSON', '~> 5.0.0'
 
   target 'Base iOS ProjectTests' do
     inherit! :search_paths
