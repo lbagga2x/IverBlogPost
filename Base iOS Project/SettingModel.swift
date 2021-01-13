@@ -277,6 +277,7 @@ class SettingModel: NSObject {
         case registerDevice(parameters: [String : Any])
         case registerUser(parameters: [String : Any])
         case blogPosts(parameters: [String : Any])
+        case createBlogPosts(parameters: [String : Any])
         case updateProfile(userId: Int, parameters: [String : Any])
         case uploadProfileProperties(userId: Int)
         case getProfile(userId: Int)
@@ -298,7 +299,7 @@ class SettingModel: NSObject {
         
         var method: HTTPMethod {
             switch self {
-            case .authenticate(_), .registerDevice(_), .uploadProfileProperties(_), .updateProfile(_, _), .logout(_), .registerUser(_), .forgotPassword(_), .createThread(_), .sendMessage(_), .markThreadRead(_), .markMessageRead(_), .restoreThread(_):
+            case .authenticate(_), .registerDevice(_), .uploadProfileProperties(_), .updateProfile(_, _), .logout(_), .registerUser(_), .forgotPassword(_), .createThread(_), .sendMessage(_), .markThreadRead(_), .markMessageRead(_), .restoreThread(_), .createBlogPosts(_):
                 return .post
             case .deleteThread(_):
                 return .delete
@@ -350,6 +351,8 @@ class SettingModel: NSObject {
                 return String(format: "/messaging/restore/%d", threadId)
             case .unreadThreads:
                 return "/messaging/unread"
+            case .createBlogPosts(_):
+                return "/blog/new"
             }
         }
         
@@ -366,7 +369,7 @@ class SettingModel: NSObject {
             
             // apply user token parameter
             switch self {
-            case .registerDevice(_), .logout(_), .getBlogPost(_), .updateProfile(_), .getProfile(_), .uploadProfileProperties(_), .getInboxThreads(_), .getTrashedThreads(_), .createThread(_), .sendMessage(_), .threadMessages(_, _), .userList(_), .markMessageRead(_), .markThreadRead(_), .deleteThread(_), .restoreThread(_), .unreadThreads:
+            case .registerDevice(_), .logout(_), .getBlogPost(_), .updateProfile(_), .getProfile(_), .uploadProfileProperties(_), .getInboxThreads(_), .getTrashedThreads(_), .createThread(_), .sendMessage(_), .threadMessages(_, _), .userList(_), .markMessageRead(_), .markThreadRead(_), .deleteThread(_), .restoreThread(_), .unreadThreads, .createBlogPosts(_):
                 if let userTokenString = settingModel.userToken?.token {
                     urlRequest.addValue("Bearer "+userTokenString, forHTTPHeaderField: "Authorization")
                     Constants.debugPrint("using user token: \(userTokenString)")
@@ -380,7 +383,7 @@ class SettingModel: NSObject {
             
             // encode parameters
             switch self {
-            case .blogPosts(let parameters), .authenticate(let parameters), .registerDevice(let parameters), .updateProfile(_, let parameters), .registerUser(let parameters), .getInboxThreads(let parameters), .getTrashedThreads(let parameters), .createThread(let parameters), .threadMessages(_, let parameters), .userList(let parameters):
+            case .blogPosts(let parameters), .authenticate(let parameters), .registerDevice(let parameters), .updateProfile(_, let parameters), .registerUser(let parameters), .getInboxThreads(let parameters), .getTrashedThreads(let parameters), .createThread(let parameters), .threadMessages(_, let parameters), .userList(let parameters), .createBlogPosts(let parameters):
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
                 break
             case .forgotPassword(let email):

@@ -19,11 +19,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddBlogPostViewController" customModule="Base_iOS_Project" customModuleProvider="target">
             <connections>
-                <outlet property="contentField" destination="4Ys-ZD-Ey9" id="Zf9-KJ-NQM"/>
+                <outlet property="blogContentField" destination="4Ys-ZD-Ey9" id="p6C-HW-28f"/>
                 <outlet property="saveButton" destination="ofG-sO-rjj" id="qiL-V8-H4c"/>
                 <outlet property="scroll" destination="HIw-PU-OIi" id="8gi-ST-1QU"/>
                 <outlet property="titleField" destination="Xot-ub-ewu" id="RKi-aU-Diy"/>
                 <outlet property="view" destination="iN0-l3-epB" id="lH7-DT-7Ou"/>
+                <outletCollection property="inputList" destination="Xot-ub-ewu" collectionClass="NSMutableArray" id="I0G-os-1fc"/>
+                <outletCollection property="inputList" destination="4Ys-ZD-Ey9" collectionClass="NSMutableArray" id="abn-2d-u0K"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
