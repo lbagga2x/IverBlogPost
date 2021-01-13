@@ -51,9 +51,8 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     @IBAction func onAddBlogButtonPressed() {
-        if let addBlogVC = storyboard?.instantiateViewController(withIdentifier: AddBlogPostViewController.Identifier) as? AddBlogPostViewController {
-            navigationController?.pushViewController(addBlogVC, animated: true)
-        }
+        let controller = AddBlogPostViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func refreshMessageButton() {

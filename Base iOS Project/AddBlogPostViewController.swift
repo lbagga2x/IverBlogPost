@@ -8,11 +8,15 @@
 
 import UIKit
 
-class AddBlogPostViewController: UIViewController {
+class AddBlogPostViewController: TextInputViewController {
     
     class var Identifier: String {
         return "AddBlogPostViewController"
     }
+    
+    @IBOutlet var titleField: UITextField?
+    @IBOutlet var contentField: UITextView?
+    @IBOutlet var saveButton: UIButton?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,15 +24,7 @@ class AddBlogPostViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func onPostButtonPressed() {
+        
     }
-    */
-
 }

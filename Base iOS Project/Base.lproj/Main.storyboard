@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
         </scene>
-        <!--Add Blog Post View Controller-->
+        <!--View Controller-->
         <scene sceneID="8Wv-wg-wsF">
             <objects>
-                <viewController storyboardIdentifier="AddBlogPostViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dpc-Xg-vQf" customClass="AddBlogPostViewController" customModule="Base_iOS_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dpc-Xg-vQf" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FL3-uW-fwh"/>
                         <viewControllerLayoutGuide type="bottom" id="II7-zq-lBR"/>

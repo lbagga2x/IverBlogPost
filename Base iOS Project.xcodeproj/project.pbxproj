@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4482D9618F4476B641799215 /* Pods_Base_iOS_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20C8FC8DC531CB24731B16B9 /* Pods_Base_iOS_Project.framework */; };
 		48DDD61625AE69DB00022D59 /* AddBlogPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DDD61525AE69DB00022D59 /* AddBlogPostViewController.swift */; };
+		48DDD61C25AE6C8900022D59 /* AddBlogPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48DDD61B25AE6C8900022D59 /* AddBlogPostViewController.xib */; };
 		8303E6891E8AA9800049343D /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303E6871E8AA9800049343D /* MessageListViewController.swift */; };
 		8303E68A1E8AA9800049343D /* MessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8303E6881E8AA9800049343D /* MessageListViewController.xib */; };
 		8303E68F1E8AAD420049343D /* MessageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8303E68D1E8AAD420049343D /* MessageDetailViewController.swift */; };
@@ -107,6 +108,7 @@
 		3C58AF6D619C44EA60C7554E /* Pods-Base iOS ProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Base iOS ProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Base iOS ProjectTests/Pods-Base iOS ProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		438D6EAF75B524F888206437 /* Pods-Base iOS Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Base iOS Project.release.xcconfig"; path = "Pods/Target Support Files/Pods-Base iOS Project/Pods-Base iOS Project.release.xcconfig"; sourceTree = "<group>"; };
 		48DDD61525AE69DB00022D59 /* AddBlogPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlogPostViewController.swift; sourceTree = "<group>"; };
+		48DDD61B25AE6C8900022D59 /* AddBlogPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBlogPostViewController.xib; sourceTree = "<group>"; };
 		8303E6871E8AA9800049343D /* MessageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
 		8303E6881E8AA9800049343D /* MessageListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageListViewController.xib; sourceTree = "<group>"; };
 		8303E68D1E8AAD420049343D /* MessageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailViewController.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				83BB38541E5E3C3D0017B81E /* BlogPostViewController.xib */,
 				83BB38571E5E3DC40017B81E /* blog_wrapper.html */,
 				48DDD61525AE69DB00022D59 /* AddBlogPostViewController.swift */,
+				48DDD61B25AE6C8900022D59 /* AddBlogPostViewController.xib */,
 			);
 			name = "Blog posts";
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				8337871C1E393EBB000D0066 /* AccountEditViewController.xib in Resources */,
 				8337870D1E3932EE000D0066 /* Lato-Bold.ttf in Resources */,
 				833786BC1E39103A000D0066 /* LaunchScreen.storyboard in Resources */,
+				48DDD61C25AE6C8900022D59 /* AddBlogPostViewController.xib in Resources */,
 				833787101E3932EE000D0066 /* Lato-HairlineItalic.ttf in Resources */,
 				836D97111E8D7DDE00018638 /* MessageImageTableViewCell.xib in Resources */,
 				83048A401EA010D5000F1632 /* MessagePhotoViewController.xib in Resources */,
