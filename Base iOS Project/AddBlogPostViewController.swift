@@ -31,6 +31,7 @@ class AddBlogPostViewController: TextInputViewController {
         super.viewDidLoad()
         setupView()
         bindViews()
+        titleField.delegate = self
     }
     
     func setupView() {
@@ -45,6 +46,8 @@ class AddBlogPostViewController: TextInputViewController {
         blogContentField.layer.borderWidth = 0.5
         blogContentField.layer.borderColor = UIColor.black.cgColor
         blogContentField.layer.cornerRadius = 6
+        
+        titleField.returnKeyType = .next
     }
     
     func bindViews() {
@@ -84,3 +87,11 @@ class AddBlogPostViewController: TextInputViewController {
     }
 }
 
+extension AddBlogPostViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == titleField {
+            blogContentField.becomeFirstResponder()
+        }
+        return true
+    }
+}
