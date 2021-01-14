@@ -10,11 +10,13 @@ import UIKit
 import SwiftSpinner
 import Alamofire
 import AlamofireObjectMapper
+import RxSwift
 
 class BaseViewController: UIViewController {
     let dataModel:DataModel = DataModel.sharedModel()
     let settingModel:SettingModel = SettingModel.sharedModel()
     var showedSpinner = false
+    let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +48,21 @@ class BaseViewController: UIViewController {
     func refreshView() {
         // overridden; called when view appears
     }
-
     
+    func setupLoadingObserver(viewModel: BaseViewModel) {
+        viewModel.isLoading.subscribe(onNext: { [weak self] (value) in
+
+            value ? self?.showProgress() : self?.hideProgress()
+            
+        }).disposed(by: bag)
+    }
+    
+    func setupErrorObserver(viewModel: BaseViewModel?) {
+        viewModel?.isError.subscribe(onNext: { [weak self] (data, value) in
+            self?.showResponseError(data, error: value)
+        }).disposed(by: bag)
+    }
+
     /// Add a back button icon instead of the text
     func addBackButton() {
         let icon = UIImage(named: "BackButtonIcon.png")
