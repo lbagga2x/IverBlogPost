@@ -89,7 +89,8 @@ class SettingModel: NSObject {
         if isRelease() {
             return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBfa2V5IjoiYmFzZTY0OlZvb2g1ZzdSNXBOQ29JT2VcL0J1N3JESVpSOEZiZVdpOHJaeU1LckFlV3d3PSIsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdCIsImlhdCI6MTQ4NzY4ODE4OSwiZXhwIjoxNDg3NzE2OTg5LCJuYmYiOjE0ODc2ODgxODksImp0aSI6IjBlYjgxMTkzNTk1Njk1YTFjZjkwNzUwMjMzNDc3ZTNlIn0.v0OW9CJt8Rq-vBMfIeCPVHSTUUlVsvIqZKN06MSmpK4"
         } else {
-            return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBfa2V5IjoiYmFzZTY0OjI3TCs0eVk1Mk9hQlRaSW4wSEJxMGR0bEhNVHFiRDVYMko4YW1tQjdjdG89IiwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0IiwiaWF0IjoxNDg5NDk5OTkzLCJleHAiOjE0ODk1Mjg3OTMsIm5iZiI6MTQ4OTQ5OTk5MywianRpIjoiODE0ZDQwMDMyMzdhOTBkOThlODNmZGM0ZWM1NmI0ZmEifQ.Fy3MY4nw8-WbVaQpcLN-dIgHjiz7RQMZzy1QX5NpQLg"
+            //Using release API Key 
+            return "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhcHBfa2V5IjoiYmFzZTY0OlZvb2g1ZzdSNXBOQ29JT2VcL0J1N3JESVpSOEZiZVdpOHJaeU1LckFlV3d3PSIsImlzcyI6Imh0dHA6XC9cL2xvY2FsaG9zdCIsImlhdCI6MTQ4NzY4ODE4OSwiZXhwIjoxNDg3NzE2OTg5LCJuYmYiOjE0ODc2ODgxODksImp0aSI6IjBlYjgxMTkzNTk1Njk1YTFjZjkwNzUwMjMzNDc3ZTNlIn0.v0OW9CJt8Rq-vBMfIeCPVHSTUUlVsvIqZKN06MSmpK4"
         }
     }
     
@@ -276,6 +277,7 @@ class SettingModel: NSObject {
         case registerDevice(parameters: [String : Any])
         case registerUser(parameters: [String : Any])
         case blogPosts(parameters: [String : Any])
+        case createBlogPosts(parameters: [String : Any])
         case updateProfile(userId: Int, parameters: [String : Any])
         case uploadProfileProperties(userId: Int)
         case getProfile(userId: Int)
@@ -297,7 +299,7 @@ class SettingModel: NSObject {
         
         var method: HTTPMethod {
             switch self {
-            case .authenticate(_), .registerDevice(_), .uploadProfileProperties(_), .updateProfile(_, _), .logout(_), .registerUser(_), .forgotPassword(_), .createThread(_), .sendMessage(_), .markThreadRead(_), .markMessageRead(_), .restoreThread(_):
+            case .authenticate(_), .registerDevice(_), .uploadProfileProperties(_), .updateProfile(_, _), .logout(_), .registerUser(_), .forgotPassword(_), .createThread(_), .sendMessage(_), .markThreadRead(_), .markMessageRead(_), .restoreThread(_), .createBlogPosts(_):
                 return .post
             case .deleteThread(_):
                 return .delete
@@ -349,6 +351,8 @@ class SettingModel: NSObject {
                 return String(format: "/messaging/restore/%d", threadId)
             case .unreadThreads:
                 return "/messaging/unread"
+            case .createBlogPosts(_):
+                return "/blog/new"
             }
         }
         
@@ -365,7 +369,7 @@ class SettingModel: NSObject {
             
             // apply user token parameter
             switch self {
-            case .registerDevice(_), .logout(_), .getBlogPost(_), .updateProfile(_), .getProfile(_), .uploadProfileProperties(_), .getInboxThreads(_), .getTrashedThreads(_), .createThread(_), .sendMessage(_), .threadMessages(_, _), .userList(_), .markMessageRead(_), .markThreadRead(_), .deleteThread(_), .restoreThread(_), .unreadThreads:
+            case .registerDevice(_), .logout(_), .getBlogPost(_), .updateProfile(_), .getProfile(_), .uploadProfileProperties(_), .getInboxThreads(_), .getTrashedThreads(_), .createThread(_), .sendMessage(_), .threadMessages(_, _), .userList(_), .markMessageRead(_), .markThreadRead(_), .deleteThread(_), .restoreThread(_), .unreadThreads, .createBlogPosts(_):
                 if let userTokenString = settingModel.userToken?.token {
                     urlRequest.addValue("Bearer "+userTokenString, forHTTPHeaderField: "Authorization")
                     Constants.debugPrint("using user token: \(userTokenString)")
@@ -379,7 +383,7 @@ class SettingModel: NSObject {
             
             // encode parameters
             switch self {
-            case .blogPosts(let parameters), .authenticate(let parameters), .registerDevice(let parameters), .updateProfile(_, let parameters), .registerUser(let parameters), .getInboxThreads(let parameters), .getTrashedThreads(let parameters), .createThread(let parameters), .threadMessages(_, let parameters), .userList(let parameters):
+            case .blogPosts(let parameters), .authenticate(let parameters), .registerDevice(let parameters), .updateProfile(_, let parameters), .registerUser(let parameters), .getInboxThreads(let parameters), .getTrashedThreads(let parameters), .createThread(let parameters), .threadMessages(_, let parameters), .userList(let parameters), .createBlogPosts(let parameters):
                 urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
                 break
             case .forgotPassword(let email):
